@@ -1,8 +1,21 @@
+import { useEffect, useState } from "react";
+
+let toggleFlag = true;
 export function ToggleName() {
-  let dName = "";
+  //let dName = "";
+  
+  let [dName, setDName] = useState("");
+
   function displayName() {
-    dName = "Raj";
-    alert(dName);
+    console.log(toggleFlag);
+    if (toggleFlag) {
+      //dName = "Raj";
+      setDName("Raj");
+    } else {
+      setDName("");
+    }
+    toggleFlag = !toggleFlag;
+    console.log("after : ", toggleFlag);
   }
 
   return (

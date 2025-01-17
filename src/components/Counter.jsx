@@ -1,17 +1,38 @@
 import { useState, useEffect } from "react";
+
 export function Counter() {
   //let counter = 0; // ordinary variable
   let [counter, setCounter] = useState(0); // state variable
 
+  useEffect(() => {
+    console.log(counter);
+  }, [counter]);
+
   function increment() {
     //counter++;
-    setCounter(counter + 1);
-    console.log(counter);
+    // setCounter(counter + 1);
+    // setCounter(counter + 1);
+    // setCounter(counter + 1);
+
+    // counter++;
+    // counter++;
+    // setCounter(counter + 1);
+
+    setCounter((prevCounter) => prevCounter + 1);
+    setCounter((prevCounter) => prevCounter + 1);
+    setCounter((prevCounter) => prevCounter + 1);
+    //console.log(counter);
   }
   function decrement() {
     //counter--;
-    setCounter(counter - 1);
-    console.log(counter);
+    // setCounter(counter - 1);
+    // setCounter(counter - 1);
+    // setCounter(counter - 1);
+
+    setCounter((prevCounter) => prevCounter - 1);
+    setCounter((prevCounter) => prevCounter - 1);
+    setCounter((prevCounter) => prevCounter - 1);
+    //console.log(counter);
   }
 
   return (
