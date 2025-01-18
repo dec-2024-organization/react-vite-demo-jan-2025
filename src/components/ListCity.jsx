@@ -2,7 +2,9 @@ function ListCity() {
   let allCities = ["Chennai", "Mumbai", "Pune"];
 
   let mappedAllCities = allCities.map((eachCity) => (
-    <li className="list-group-item">{eachCity}</li>
+    <li key={eachCity} className="list-group-item">
+      {eachCity}
+    </li>
   ));
   return (
     <>

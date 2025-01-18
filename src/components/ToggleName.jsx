@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 let toggleFlag = true;
 export function ToggleName() {
   //let dName = "";
-  
+
   let [dName, setDName] = useState("");
 
   function displayName() {
