@@ -8,12 +8,14 @@ import { ArrayDestructure } from "./components/ArrayDestructure";
 import { ObjectDestructure } from "./components/ObjectDestructure";
 import { BookList } from "./components/books/BookList";
 import { FruitList } from "./components/fruits/FruitList";
+import { TodoList } from "./components/todos/TodoList";
+import { CaptureTextData } from "./components/CaptureTextData";
 function App() {
   return (
     // <div>
     // <Fragment>
     <>
-      <h2>App Component</h2>
+      {/* <h2>App Component</h2> */}
       {/* <Display></Display> */}
       {/* <ToggleName></ToggleName> */}
       {/* <Counter></Counter>
@@ -21,7 +23,9 @@ function App() {
       <ArrayDestructure></ArrayDestructure> */}
       {/* <ObjectDestructure></ObjectDestructure> */}
       {/* <BookList></BookList> */}
-      <FruitList></FruitList>
+      {/* <FruitList></FruitList> */}
+      <TodoList></TodoList>
+      {/* <CaptureTextData></CaptureTextData> */}
     </>
     //</Fragment>
     // </div>
