@@ -20,7 +20,10 @@ export function TodoList() {
     },
   ]);
 
-  let mappedAllTodos = allTodos.map((todo) => (
+  let [filteredTodos, setFilteredTodos] = useState(allTodos);
+  let [filterText, setFilterText] = useState("");
+
+  let mappedAllTodos = filteredTodos.map((todo) => (
     <TodoItem
       key={todo.todoId}
       item={todo}
@@ -42,6 +45,8 @@ export function TodoList() {
   function deleteItem(itemId) {
     let filteredTodos = allTodos.filter((todo) => todo.todoId != itemId);
     setAllTodos(filteredTodos);
+    setFilteredTodos(filteredTodos);
+    setFilterText("");
   }
 
   function handleAdd(e) {
@@ -51,14 +56,25 @@ export function TodoList() {
       todoStatus: false,
     });
   }
+
+  function handleFilterChange(event) {
+    setFilterText(event.target.value);
+    let filteredTodos = allTodos.filter((todo) =>
+      todo.todoName.toLowerCase().includes(event.target.value.toLowerCase())
+    );
+    setFilteredTodos(filteredTodos);
+  }
+
   function addTodo() {
     setAllTodos([...allTodos, newTodo]);
+    setFilteredTodos([...allTodos, newTodo]);
     setNewTodo({
       todoId: 0,
       todoName: "",
       todoStatus: false,
     });
   }
+
   return (
     <>
       <div className="container m-5">
@@ -80,8 +96,23 @@ export function TodoList() {
             Add Todo
           </button>
         </div>
-        <h5>My Todo List</h5>
-        <h6>Total Todos : {allTodos.length}</h6>
+        <div className="d-flex justify-content-between">
+          <h5>My Todo List</h5>
+          <h5>Total Todos : {allTodos.length}</h5>
+        </div>
+        <div className="form-control-group mx-5 my-2 p-3 bg-info">
+          <label htmlFor="filterId" className="form-label">
+            Filter By Name:
+          </label>
+          <input
+            type="text"
+            className="form-control"
+            id="filterId"
+            placeholder="Enter search string"
+            value={filterText}
+            onChange={(event) => handleFilterChange(event)}
+          />
+        </div>
         {allTodos.length == 0 ? (
           <div className="text-danger">Todo List is empty!</div>
         ) : (

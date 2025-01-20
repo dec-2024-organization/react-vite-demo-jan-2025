@@ -1,32 +1,8 @@
 import { useState } from "react";
+import { getAllBooks, deleteBook } from "./book-data";
 
 export function BookList() {
-  let [allBooks, setAllBooks] = useState([
-    {
-      bookId: 201,
-      bookTitle: "Harry Potter and the Prisoner of Azkaban",
-      bookAuthor: "JK Rowling",
-      bookPrice: 300,
-      bookImageUrl:
-        "https://images.unsplash.com/photo-1618666012174-83b441c0bc76?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTJ8fGhhcnJ5JTIwcG90dGVyJTIwYm9va3N8ZW58MHx8MHx8fDA%3D",
-    },
-    {
-      bookId: 202,
-      bookTitle: "Harry Potter and the Order of Phoenix",
-      bookAuthor: "JK Rowling",
-      bookPrice: 350,
-      bookImageUrl:
-        "https://images.unsplash.com/photo-1626618012641-bfbca5a31239?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8aGFycnklMjBwb3R0ZXIlMjBib29rc3xlbnwwfHwwfHx8MA%3D%3D",
-    },
-    {
-      bookId: 203,
-      bookTitle: "Harry Potter and the Sorcerers Stone",
-      bookAuthor: "JK Rowling",
-      bookPrice: 250,
-      bookImageUrl:
-        "https://images.unsplash.com/photo-1600189261867-30e5ffe7b8da?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTl8fGhhcnJ5JTIwcG90dGVyJTIwYm9va3N8ZW58MHx8MHx8fDA%3D",
-    },
-  ]);
+  let [allBooks, setAllBooks] = useState(getAllBooks());
 
   let mappedAllBooks = allBooks.map((book) => {
     return (
@@ -47,7 +23,7 @@ export function BookList() {
         <td>
           <button
             className="btn btn-danger"
-            onClick={() => deleteBook(book.bookId)}
+            onClick={() => removeBook(book.bookId)}
           >
             Delete
           </button>
@@ -58,10 +34,12 @@ export function BookList() {
 
   let isBooksEmpty = allBooks.length == 0;
 
-  function deleteBook(bookId) {
+  function removeBook(bookId) {
     console.log("Book with id: " + bookId);
     //allBooks = allBooks.filter((book) => book.bookId != bookId);
-    setAllBooks(allBooks.filter((book) => book.bookId != bookId));
+    //setAllBooks(allBooks.filter((book) => book.bookId != bookId));
+    deleteBook(bookId);
+    setAllBooks(getAllBooks());
   }
 
   return (

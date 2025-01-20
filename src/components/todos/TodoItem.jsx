@@ -5,14 +5,14 @@ export function TodoItem({ item, removeItem, updateItem }) {
         {item.todoId}
         {item.todoStatus ? (
           <span
-            class="material-symbols-outlined text-success mx-3"
+            className="material-symbols-outlined text-success mx-3"
             onClick={() => updateItem(item.todoId)}
           >
             check_circle
           </span>
         ) : (
           <span
-            class="material-symbols-outlined text-warning mx-3"
+            className="material-symbols-outlined text-warning mx-3"
             onClick={() => updateItem(item.todoId)}
           >
             circle
@@ -24,7 +24,7 @@ export function TodoItem({ item, removeItem, updateItem }) {
           className="btn btn-outline-danger btn-sm mx-5"
           onClick={() => removeItem(item.todoId)}
         >
-          <span class="material-symbols-outlined">delete</span>
+          <span className="material-symbols-outlined">delete</span>
         </button>
       </li>
     </>

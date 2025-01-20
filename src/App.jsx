@@ -10,6 +10,7 @@ import { BookList } from "./components/books/BookList";
 import { FruitList } from "./components/fruits/FruitList";
 import { TodoList } from "./components/todos/TodoList";
 import { CaptureTextData } from "./components/CaptureTextData";
+import { BookAdd } from "./components/books/BookAdd";
 function App() {
   return (
     // <div>
@@ -23,8 +24,9 @@ function App() {
       <ArrayDestructure></ArrayDestructure> */}
       {/* <ObjectDestructure></ObjectDestructure> */}
       {/* <BookList></BookList> */}
+      <BookAdd></BookAdd>
       {/* <FruitList></FruitList> */}
-      <TodoList></TodoList>
+      {/* <TodoList></TodoList> */}
       {/* <CaptureTextData></CaptureTextData> */}
     </>
     //</Fragment>
