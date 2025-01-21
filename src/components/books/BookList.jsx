@@ -1,7 +1,11 @@
 import { useState } from "react";
+import { useLocation, useNavigate } from "react-router-dom";
 import { getAllBooks, deleteBook } from "./book-data";
 
 export function BookList() {
+  let navigate = useNavigate();
+  let { state } = useLocation();
+  console.log("state received from BookAdd : ", state);
   let [allBooks, setAllBooks] = useState(getAllBooks());
 
   let mappedAllBooks = allBooks.map((book) => {
@@ -18,7 +22,12 @@ export function BookList() {
           <button className="btn btn-dark">View</button>
         </td>
         <td>
-          <button className="btn btn-info">Edit</button>
+          <button
+            className="btn btn-info"
+            onClick={() => editBook(book.bookId)}
+          >
+            Edit
+          </button>
         </td>
         <td>
           <button
@@ -42,6 +51,10 @@ export function BookList() {
     setAllBooks(getAllBooks());
   }
 
+  function editBook(bookId) {
+    // navigate to edit-book
+    navigate(`/book-home/book-edit/${bookId}`);
+  }
   return (
     <>
       <div className="container m-3">

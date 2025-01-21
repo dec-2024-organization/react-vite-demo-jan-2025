@@ -1,31 +1,27 @@
 import { useState } from "react";
-import { addBook } from "./book-data";
-import { useNavigate } from "react-router-dom";
+import { updateBook, getBookById } from "./book-data";
+import { useParams, useNavigate } from "react-router-dom";
 
-export function BookAdd() {
+export function BookEdit() {
   let navigate = useNavigate();
-  let [newBook, setNewBook] = useState({
-    bookId: 0,
-    bookTitle: "",
-    bookAuthor: "",
-    bookPrice: 0,
-    bookImageUrl: "",
-  });
+  let { bid } = useParams();
+  let bookId = bid;
+  let [editBook, setEditBook] = useState(getBookById(bookId));
 
   let [validationErrors, setValidationErrors] = useState({});
 
-  function handleAddFormSubmit(event) {
+  function handleEditFormSubmit(event) {
     event.preventDefault();
-    console.log(newBook);
+    console.log(editBook);
     console.log(validationErrors);
-    addBook(newBook);
+    updateBook(editBook);
     // navigate to BookList component - we have to learn routing in react
-    navigate("/book-home/book-list", { state: { ...newBook } });
+    navigate("/book-home/book-list");
   }
 
   function handleChangeInput(event) {
-    setNewBook({
-      ...newBook,
+    setEditBook({
+      ...editBook,
       [event.target.name]: event.target.value,
     });
 
@@ -45,14 +41,14 @@ export function BookAdd() {
 
   return (
     <>
-      <div className="row my-2">
+      <div className="row my-5">
         <div className="col-3"></div>
         <div className="col-6">
           <div className="container my-5">
-            <form onSubmit={(event) => handleAddFormSubmit(event)}>
+            <form onSubmit={(event) => handleEditFormSubmit(event)}>
               <div className="card">
-                <div className="card-header bg-success text-light">
-                  <h4>ADD NEW BOOK</h4>
+                <div className="card-header bg-primary text-light">
+                  <h4>EDIT BOOK</h4>
                 </div>
                 <div className="card-body">
                   <div className="form-control-group mb-2">
@@ -65,7 +61,7 @@ export function BookAdd() {
                       className="form-control"
                       placeholder="Enter Book Title"
                       name="bookTitle"
-                      value={newBook.bookTitle}
+                      value={editBook.bookTitle}
                       onChange={(event) => handleChangeInput(event)}
                     ></input>
                     <div className="text-danger text-small">
@@ -82,7 +78,7 @@ export function BookAdd() {
                       className="form-control"
                       placeholder="Enter Book Author"
                       name="bookAuthor"
-                      value={newBook.bookAuthor}
+                      value={editBook.bookAuthor}
                       onChange={(event) => handleChangeInput(event)}
                     ></input>
                     <div className="text-danger text-small">
@@ -99,7 +95,7 @@ export function BookAdd() {
                       className="form-control"
                       placeholder="Enter Book Price"
                       name="bookPrice"
-                      value={newBook.bookPrice}
+                      value={editBook.bookPrice}
                       onChange={(event) => handleChangeInput(event)}
                     ></input>
                     <div className="text-danger text-small">
@@ -116,31 +112,31 @@ export function BookAdd() {
                       className="form-control"
                       placeholder="Enter Book Image Url"
                       name="bookImageUrl"
-                      value={newBook.bookImageUrl}
+                      value={editBook.bookImageUrl}
                       onChange={(event) => handleChangeInput(event)}
                     ></input>
                   </div>
                 </div>
-                <div className="card-footer bg-success text-light">
+                <div className="card-footer bg-primary text-light">
                   {Object.keys(validationErrors).length == 0 ? (
                     <button
                       type="submit"
-                      className="btn btn-light text-success"
+                      className="btn btn-light text-primary"
                     >
-                      ADD
+                      UPDATE
                     </button>
                   ) : (
                     <button
                       type="submit"
-                      className="btn btn-light text-success"
+                      className="btn btn-light text-primary"
                       disabled
                     >
-                      ADD
+                      UPDATE
                     </button>
                   )}
                   <button
                     type="reset"
-                    className="btn btn-light text-success mx-5"
+                    className="btn btn-light text-primary mx-5"
                   >
                     CLEAR
                   </button>

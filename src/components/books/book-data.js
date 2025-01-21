@@ -34,6 +34,8 @@ export function getBookById(bookId) {
 }
 
 export function addBook(newBook) {
+  newBook.bookId =
+    allBooks.length == 0 ? 201 : allBooks[allBooks.length - 1].bookId + 1;
   allBooks.push(newBook);
 }
 
@@ -45,4 +47,3 @@ export function updateBook(updatedBook) {
 export function deleteBook(bookId) {
   allBooks = allBooks.filter((book) => book.bookId != bookId);
 }
-
