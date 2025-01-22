@@ -8,37 +8,47 @@ export function AppHeader() {
           <ul className="navbar-nav">
             <li className="nav-item">
               <Link className="nav-link" to="/display">
-                Display Component
+                Display
               </Link>
             </li>
             <li className="nav-item">
               <Link className="nav-link" to="/counter">
-                Counter Component
+                Counter
               </Link>
             </li>
             <li className="nav-item">
               <Link className="nav-link" to="/list-city">
-                List City Component
+                List City
               </Link>
             </li>
             <li className="nav-item">
               <Link className="nav-link" to="/toggle-name">
-                Toggle Name Component
+                Toggle Name
               </Link>
             </li>
             <li className="nav-item">
               <Link className="nav-link" to="/todo">
-                Todo Component
+                Todo
               </Link>
             </li>
             <li className="nav-item">
               <Link className="nav-link" to="/">
-                Fruit Component
+                Fruit
               </Link>
             </li>
             <li className="nav-item">
               <Link className="nav-link" to="/book-home">
-                Book Component
+                Book
+              </Link>
+            </li>
+            <li className="nav-item">
+              <Link className="nav-link" to="/book-home-http">
+                Book Http
+              </Link>
+            </li>
+            <li className="nav-item">
+              <Link className="nav-link" to="/fetch-demo">
+                Fetch Demo
               </Link>
             </li>
           </ul>

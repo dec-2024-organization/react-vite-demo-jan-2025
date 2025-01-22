@@ -16,6 +16,11 @@ import { BookEdit } from "./components/books/BookEdit";
 import { BookHome } from "./components/books/BookHome";
 import { ComponentNotFound } from "./components/ComponentNotFound";
 import { AppHeader } from "./components/AppHeader";
+import { BookListHttp } from "./components/books-http/BookListHttp";
+import { BookAddHttp } from "./components/books-http/BookAddHttp";
+import { BookEditHttp } from "./components/books-http/BookEditHttp";
+import { BookHomeHttp } from "./components/books-http/BookHomeHttp";
+import { FetchDemo } from "./components/FetchDemo";
 function App() {
   return (
     // <div>
@@ -30,10 +35,19 @@ function App() {
           <Route path="/list-city" element={<ListCity />}></Route>
           <Route path="/toggle-name" element={<ToggleName />}></Route>
           <Route path="/todo" element={<TodoList />}></Route>
+          <Route path="/fetch-demo" element={<FetchDemo />}></Route>
           <Route path="/book-home" element={<BookHome />}>
             <Route path="book-list" element={<BookList />}></Route>
             <Route path="book-add" element={<BookAdd />}></Route>
             <Route path="book-edit/:bid" element={<BookEdit />}></Route>
+          </Route>
+          <Route path="/book-home-http" element={<BookHomeHttp />}>
+            <Route path="book-list-http" element={<BookListHttp />}></Route>
+            <Route path="book-add-http" element={<BookAddHttp />}></Route>
+            <Route
+              path="book-edit-http/:bid"
+              element={<BookEditHttp />}
+            ></Route>
           </Route>
           <Route path="*" element={<ComponentNotFound />}></Route>
         </Routes>
