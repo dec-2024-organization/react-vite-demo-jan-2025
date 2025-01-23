@@ -1,3 +1,4 @@
+import { AppHeader } from "../AppHeader";
 import { FruitItem } from "./FruitItem";
 import { useState } from "react";
 
@@ -32,6 +33,7 @@ export function FruitList() {
   }
   return (
     <>
+      <AppHeader />
       <div className="container m-5">
         <h2>LIST OF FRUITS</h2>
         {allFruits.length == 0 ? (

@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { AppHeader } from "./AppHeader";
 
 export function Counter() {
   //let counter = 0; // ordinary variable
@@ -37,6 +38,7 @@ export function Counter() {
 
   return (
     <>
+      <AppHeader />
       <h4>Counter Component</h4>
       <button type="button" onClick={decrement}>
         -

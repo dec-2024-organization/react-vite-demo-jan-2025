@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { TodoItem } from "./TodoItem";
+import { AppHeader } from "../AppHeader";
 
 export function TodoList() {
   let [newTodo, setNewTodo] = useState({
@@ -77,6 +78,7 @@ export function TodoList() {
 
   return (
     <>
+      <AppHeader />
       <div className="container m-5">
         <h1 className="text-center">TODO APP</h1>
         <div className="form-control-group my-2">

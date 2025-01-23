@@ -32,7 +32,7 @@ export function BookAddHttp() {
   async function handleAddFormSubmit(event) {
     event.preventDefault();
     try {
-      let response = await fetch("http://localhost:3000/book", {
+      let response = await fetch("http://localhost:3000/books", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

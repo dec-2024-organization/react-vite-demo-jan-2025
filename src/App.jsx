@@ -21,13 +21,14 @@ import { BookAddHttp } from "./components/books-http/BookAddHttp";
 import { BookEditHttp } from "./components/books-http/BookEditHttp";
 import { BookHomeHttp } from "./components/books-http/BookHomeHttp";
 import { FetchDemo } from "./components/FetchDemo";
+import { Login } from "./components/login/Login";
+import { Logout } from "./components/login/Logout";
 function App() {
   return (
     // <div>
     // <Fragment>
     <>
       <BrowserRouter>
-        <AppHeader />
         <Routes>
           <Route path="/" element={<FruitList />}></Route>
           <Route path="/display" element={<Display />}></Route>
@@ -36,6 +37,8 @@ function App() {
           <Route path="/toggle-name" element={<ToggleName />}></Route>
           <Route path="/todo" element={<TodoList />}></Route>
           <Route path="/fetch-demo" element={<FetchDemo />}></Route>
+          <Route path="/login" element={<Login />}></Route>
+          <Route path="/logout" element={<Logout />}></Route>
           <Route path="/book-home" element={<BookHome />}>
             <Route path="book-list" element={<BookList />}></Route>
             <Route path="book-add" element={<BookAdd />}></Route>

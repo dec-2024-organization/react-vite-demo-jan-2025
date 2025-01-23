@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { AppHeader } from "./AppHeader";
 
 let toggleFlag = true;
 export function ToggleName() {
@@ -21,6 +22,7 @@ export function ToggleName() {
   return (
     //<div>
     <>
+      <AppHeader />
       <h3>Toggle Name Component</h3>
       <button type="button" onClick={displayName}>
         Click
