@@ -18,6 +18,15 @@ export function AppHeader() {
             )}
             {Auth.isLoggedIn && Auth.getRole() == "CUSTOMER" ? (
               <li className="nav-item">
+                <Link className="nav-link" to="/sports-list">
+                  Sports
+                </Link>
+              </li>
+            ) : (
+              ""
+            )}
+            {Auth.isLoggedIn && Auth.getRole() == "CUSTOMER" ? (
+              <li className="nav-item">
                 <Link className="nav-link" to="/counter">
                   Counter
                 </Link>
@@ -54,7 +63,7 @@ export function AppHeader() {
             )}
             {Auth.isLoggedIn && Auth.getRole() == "CUSTOMER" ? (
               <li className="nav-item">
-                <Link className="nav-link" to="/">
+                <Link className="nav-link" to="/fruit-list">
                   Fruit
                 </Link>
               </li>

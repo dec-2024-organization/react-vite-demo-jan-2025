@@ -23,6 +23,7 @@ import { BookHomeHttp } from "./components/books-http/BookHomeHttp";
 import { FetchDemo } from "./components/FetchDemo";
 import { Login } from "./components/login/Login";
 import { Logout } from "./components/login/Logout";
+import SportsList from "./components/sports/SportsList";
 function App() {
   return (
     // <div>
@@ -30,7 +31,9 @@ function App() {
     <>
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<FruitList />}></Route>
+          <Route path="/" element={<Login />}></Route>
+          <Route path="/fruit-list" element={<FruitList />}></Route>
+          <Route path="/sports-list" element={<SportsList />}></Route>
           <Route path="/display" element={<Display />}></Route>
           <Route path="/counter" element={<Counter />}></Route>
           <Route path="/list-city" element={<ListCity />}></Route>
