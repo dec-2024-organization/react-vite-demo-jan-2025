@@ -70,6 +70,15 @@ export function AppHeader() {
             ) : (
               ""
             )}
+            {Auth.isLoggedIn && Auth.getRole() == "CUSTOMER" ? (
+              <li className="nav-item">
+                <Link className="nav-link" to="/counter-redux">
+                  Counter Redux
+                </Link>
+              </li>
+            ) : (
+              ""
+            )}
             {Auth.isLoggedIn && Auth.getRole() == "ADMIN" ? (
               <li className="nav-item">
                 <Link className="nav-link" to="/book-home">

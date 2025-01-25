@@ -42,7 +42,7 @@ export function Login() {
           if (data.role == "ADMIN") {
             navigate("/book-home");
           } else if (data.role == "CUSTOMER") {
-            navigate("/");
+            navigate("/fruit-list");
           }
         } else {
           // login failed
